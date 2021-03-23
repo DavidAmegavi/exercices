@@ -6,35 +6,42 @@ function calculator(reader) {
         console.log("Not a number");
         askFirstNumber();
       } else {
-        reader.question("Enter the operation [+ * / -]: \n", (operation) => {
-          const askSecondNumber = () => {
-            reader.question("Enter your second number: \n", (value2) => {
-              if (checkNumber(value2) !== value2) {
-                console.log("Not a number");
-                askSecondNumber();
-              } else {
-                function calcul() {
-                  if (operation === "+") {
-                    let result = parseInt(value1) + parseInt(value2);
-                    console.log(result);
-                  } else if (operation === "*") {
-                    let result = parseInt(value1) * parseInt(value2);
-                    console.log(result);
-                  } else if (operation === "/") {
-                    let result = parseInt(value1) / parseInt(value2);
-                    console.log(result);
-                  } else if (operation === "-") {
-                    let result = parseInt(value1) - parseInt(value2);
-                    console.log(result);
+        const askOperationType = () => { 
+          reader.question("Enter the operation [+ * / -]: \n", (operation) => {
+            if (checkOperation(operation) !== operation) {
+              console.log("Not a oparator signs");
+            } else { 
+              askOperationType();    
+            const askSecondNumber = () => {
+              reader.question("Enter your second number: \n", (value2) => {
+                if (checkNumber(value2) !== value2) {
+                  console.log("Not a number");
+                  askSecondNumber();
+                } else {
+                  function calcul() {
+                    if (operation === "+") {
+                      let result = parseInt(value1) + parseInt(value2);
+                      console.log(result);
+                    } else if (operation === "*") {
+                      let result = parseInt(value1) * parseInt(value2);
+                      console.log(result);
+                    } else if (operation === "/") {
+                      let result = parseInt(value1) / parseInt(value2);
+                      console.log(result);
+                    } else if (operation === "-") {
+                      let result = parseInt(value1) - parseInt(value2);
+                      console.log(result);
+                    }
+                    reader.close();
                   }
-                  reader.close();
+                  calcul();
                 }
-                calcul();
-              }
-            });
-          };
-          askSecondNumber();
-        });
+              });
+            };
+            askSecondNumber();
+          });
+        };
+        askOperationType();
       }
     });
   };
@@ -47,4 +54,12 @@ function checkNumber(value) {
     return value;
   }
 }
+
+function checkNumber(operation) {
+  if (operation !== "+" || "-" || "*" || "/") {  
+    return null
+  } else {
+    return operation; 
+  }
+})
 export default calculator;

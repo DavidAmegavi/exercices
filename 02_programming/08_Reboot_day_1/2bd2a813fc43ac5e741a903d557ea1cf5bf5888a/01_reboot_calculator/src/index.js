@@ -7,3 +7,5 @@ const reader = readline.createInterface({
 });
 
 calculator(reader);
+
+const toto = "tata"; 
