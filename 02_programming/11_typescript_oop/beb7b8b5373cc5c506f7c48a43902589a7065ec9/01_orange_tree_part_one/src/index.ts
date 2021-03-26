@@ -35,6 +35,35 @@ abstract class Tree {
 
 }
 
+class Sport {
+  name: string;
+  popularity: boolean; 
+  place: string;
+  team: boolean = true;
+  player: number; 
+  level : string; 
+
+
+  constructor(name: string, player: number, place: string) {
+    this.name = name;  
+    this.player = player; 
+    this.place = place;
+  }
+
+  money(currency : number = 0): void{
+    console.log(`${this.name} is ${this.player}player versus 5 player in ${this.place} with ${currency} euros`); 
+  }
+
+
+class Basketball extends Sport {
+  sound(): void {
+    console.log("Boom Boom Boom that's baloon "); 
+  }
+}
+const ballin = new Basketball("NBA", 5, "arena")
+
+}
+
 
 
 
