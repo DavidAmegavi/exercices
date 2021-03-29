@@ -21,19 +21,64 @@ const reader = readline.createInterface({
 
 let customer = [];
 
+  
+
+
 let customerInfo = 
 {
     firstname: null, 
-    lastname: null, 
+    lastname: null,
     email: null, 
     birthdate: null, 
     city: null, 
     country: null,  
 };
 
-function customerData (){
+function getAcustomer () {
+  const first = customer.firstname;
+  const last = customer.lastname; 
+  const fullname = first + last 
+  const title = fullname.toUppercase; 
+  console.log( {title} ); 
+  
+}
 
-  customer.forEach(element => console.log(element.firstname,element.lastname));
+const backToMenu = () => {
+  console.log("1 - Add new customer\n2 - Access customer data\n3 - Quit   ")
+  reader.question("Choose an action:\n", (choice) => 
+{ 
+    if(choice === "1")
+    {
+      createNewCustomer();
+    }
+    else if (choice === "2")
+    {
+      customerData();
+    }
+     else if(choice === "3") 
+    {
+      reader.close(); 
+    }
+}); 
+} 
+
+
+
+function customerData (){
+  
+  customer.push(customerInfo); 
+  customer.forEach(element => console.log(element.firstname, element.lastname));
+  reader.question("Choose a number\n", (choiceCustomer) => {
+    if(choiceCustomer === "1"){
+       console.log("heheheh")
+    } else if(choiceCustomer === "2") {
+      
+    } else if(choiceCustomer === "3") {
+      
+    } else if(choiceCustomer === "4") {
+      
+    }
+  })
 }
 
 function createNewCustomer (){
@@ -54,15 +99,14 @@ function createNewCustomer (){
             customerInfo.city = cityInput; 
 
             reader.question("country: \n", (countryInput) => {
-              customerInfo.country = countryInput; 
+              customerInfo.country = countryInput;
+              backToMenu();
             });
           });
         });
       });
     });
-  });
-  console.log(customer.push('test')); 
-  customerData(); 
+  }); 
 }
 
 
@@ -71,7 +115,7 @@ function welcome ()
 {
   console.log("Welcome\n*************" ); 
   console.log("1 - Add new customer\n2 - Access customer data\n3 - Quit   ")
-  reader.question("Choose an action:\n", (choice) => 
+    reader.question("Choose an action:\n", (choice) => 
   { 
       if(choice === "1")
       {
@@ -92,11 +136,5 @@ welcome();
 
 
 
-/*Customer information:
-Name:             Alice Cooper
-Email:            alice.cooper@fake.local
-Address:
- - City:          New York
- - Country:       United States of America
-Total purchase:   1529
-Loyalty points:  76.45*/
+
+
