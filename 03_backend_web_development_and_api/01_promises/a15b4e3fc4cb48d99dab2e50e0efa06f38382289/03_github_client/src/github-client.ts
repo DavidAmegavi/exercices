@@ -1,3 +1,4 @@
+import { Response } from "node-fetch";
 import { getReposUrlByNickname, listRepos, getOneRepoInfos } from "../utils";
 
 export type Repo = {
@@ -12,12 +13,19 @@ export type GitHub = {
 }
 
 export class GithubClient {
-  static getReposUrl() {
+  static getReposUrl(nickname: string): Promise<string> {
     // You code goes here
+    return new Promise((resolve, reject) => {
+      resolve(getReposUrlByNickname(nickname).then(url)
+
+      });
   }
 
-  static getRepos() {
+  static getRepos(url: string): Promise<string[]>  {
     // You code goes here
+    return new Promise ((resolve, reject ) => {
+      
+    }
   }
 
   static printRepos() {
