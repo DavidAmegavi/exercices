@@ -13,22 +13,27 @@ export type GitHub = {
 }
 
 export class GithubClient {
-  static getReposUrl(nickname: string): Promise<string> {
+  static getReposUrl(nickname: string): Promise<string>{
     // You code goes here
-    return new Promise((resolve, reject) => {
-      resolve(getReposUrlByNickname(nickname).then(url)
-
-      });
-  }
-
-  static getRepos(url: string): Promise<string[]>  {
-    // You code goes here
-    return new Promise ((resolve, reject ) => {
-      
+    // if(nickname === )
+    return getReposUrlByNickname(nickname)
+      .then((dataBase) => {
+        return dataBase.repos_url
+      }).catch((error) => {
+         throw(error); 
+      })
     }
+  
+
+  static getRepos(url: string): Promise<string[]> {
+    // You code goes here
+    return listRepos(url)
+    .then((repository) =>{
+      return repository
+    })
   }
 
-  static printRepos() {
+  static printRepos(repos: string) {
     // You code goes here
   }
 
@@ -37,7 +42,9 @@ export class GithubClient {
     // You code goes here
   }
   
-  static getProjectInformations() {
+  static getProjectInformations(url: string) {
     // You code goes here
+      return getOneRepoInfos(url)
+      .then 
   }
 }
