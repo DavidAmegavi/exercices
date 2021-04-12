@@ -1,17 +1,17 @@
 import fetch, { Response } from "node-fetch"
 
-function getChuckNorrisJoke(): Promise<Response> {
+function getChuckNorrisJoke(category: string): Promise<void> {
   // code the function here
-  return fetch("https://api.chucknorris.io/jokes/random?category={category}")
-  .then((value) => value.json())
-  .then((value) => {
-    console.log (value);
+  return fetch(`https://api.chucknorris.io/jokes/random?category=${category}`)
+  .then((random) => random.json())
+  .then((joke) => {
+    console.log(joke);
     })
   .catch((error) => {
     console.error(error);
   });
 }
-}
+
 
 // leave line below for tests to work properly
 export { getChuckNorrisJoke }

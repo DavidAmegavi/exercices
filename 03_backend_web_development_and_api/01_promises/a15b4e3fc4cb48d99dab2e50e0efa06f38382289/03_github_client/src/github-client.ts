@@ -15,36 +15,42 @@ export type GitHub = {
 export class GithubClient {
   static getReposUrl(nickname: string): Promise<string>{
     // You code goes here
-    // if(nickname === )
-    return getReposUrlByNickname(nickname)
-      .then((dataBase) => {
-        return dataBase.repos_url
-      }).catch((error) => {
-         throw(error); 
-      })
+    return getReposUrlByNickname(nickname).then((url) => {
+        if(url.message === "Not found") {
+          throw new Error ("User does not exist")
+        } else {
+          return url.repos_url;
+        }
+      });
     }
   
 
-  static getRepos(url: string): Promise<string[]> {
+  static getRepos(url: string): Promise<Repo[]> {
     // You code goes here
     return listRepos(url)
-    .then((repository) =>{
-      return repository
-    })
   }
 
-  static printRepos(repos: string) {
+  static printRepos(print: Repo[]): Promise<Repo[]> {
     // You code goes here
-  }
+    print.forEach((element, index) => console.log(`${index + 1} - ${element.name}`))
+    return print
+    }
+
 
   
-  static printRepository() {
+  static printRepository(newRepo: Repo): void {
     // You code goes here
+      console.log(`${newRepo.name}`);
+      console.log(`${newRepo.description}`);
+      console.log(`${newRepo.subscribers_count}`);
+      console.log(`${newRepo.stargazers_count}`);
+      console.log(`${newRepo.language}`);
+      console.log(`${newRepo.url}`);
   }
   
-  static getProjectInformations(url: string) {
+  static getProjectInformations(url: string): Promise<Repo>{
     // You code goes here
-      return getOneRepoInfos(url)
-      .then 
+    return getOneRepoInfos(url)
   }
+ 
 }
