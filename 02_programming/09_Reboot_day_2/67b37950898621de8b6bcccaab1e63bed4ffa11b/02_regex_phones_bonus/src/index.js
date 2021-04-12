@@ -1,1 +1,0 @@
-const checkPhoneNumber = require("./checkPhoneNumber");
