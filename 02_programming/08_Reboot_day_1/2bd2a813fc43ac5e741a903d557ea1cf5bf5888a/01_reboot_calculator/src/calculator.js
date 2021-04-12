@@ -47,19 +47,58 @@ function calculator(reader) {
   };
   askFirstNumber();
 }
-function checkNumber(value) {
-  if (isNaN(value)) {
-    return null;
-  } else {
-    return value;
+// function checkNumber(value) {
+//   if (isNaN(value)) {
+//     return null;
+//   } else {
+//     return value;
+//   }
+// }
+
+// function checkNumber(operation) {
+//   if (operation !== "+" || "-" || "*" || "/") {  
+//     return null
+//   } else {
+//     return operation; 
+//   }
+// })
+
+
+
+
+
+
+function calculator(reader) {
+
+  function doSomethingWithnumber(number1){
+    if(isNaN(number1)){
+      console.log("Not a number");
+       askFirstNumber();  
+    } else {
+      askOperationType(); 
+    }
+    
   }
+
+  const askFirstNumber = () => {
+    reader.question("Enter the first number \n>  ", (number1) => { 
+      doSomethingWithnumber(number1);
+      const askOperationType = () => {
+        reader.question("Choose an operation: [ + - * / ]\n> " , (operation) => {
+          
+          const askSecondNumber = () => {
+            reader.question("Enter the second number\n> ", (number2) => {
+
+            });
+          };
+        });
+      };
+    });
+  };
+
 }
 
-function checkNumber(operation) {
-  if (operation !== "+" || "-" || "*" || "/") {  
-    return null
-  } else {
-    return operation; 
-  }
-})
 export default calculator;
+
+
+

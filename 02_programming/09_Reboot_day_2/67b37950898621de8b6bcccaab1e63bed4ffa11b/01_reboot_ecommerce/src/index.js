@@ -9,4 +9,4 @@ const reader = readline.createInterface({
 eCommerce(reader);
 
 
-
+module.exports = eCommerce;

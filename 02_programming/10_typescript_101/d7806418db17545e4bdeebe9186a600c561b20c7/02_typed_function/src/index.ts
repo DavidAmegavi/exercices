@@ -11,6 +11,5 @@ function handleTuple(tuple: [string,number]):void{
 (handleTuple(tuple)); 
 
 
-
 // Leave the line below for tests to work properly.
 export { handleTuple };

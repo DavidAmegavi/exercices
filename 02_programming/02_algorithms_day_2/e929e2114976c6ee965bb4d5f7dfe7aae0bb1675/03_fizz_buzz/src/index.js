@@ -1,23 +1,18 @@
-function fizzBuzz(number1, number2, func) {
+function fizzBuzz(nb1, nb2) {
   // Code the function here.
-  const list=[];
+  const list = []; 
 
-  if (number1 < number2) { 
-    let n = number1
-
-    while (n <= number2) {
-      n++;
-      list.push(n);
-
+  if(nb1 <= nb2) {
+    for(let i = 1; i <= nb2; i++) {
+      list.push(i);
     }
   }
-  if (n % 3 === 0 ){
-    console.log("fizz")
-  }
-  return list;
   
+  if( i % 3 === 0){
+    
+  }
 }
 
 // Leave the line below untouched for tests to work properly.
 module.exports = fizzBuzz;
-console.log(fizzBuzz(0, 14)); 
+console.log(fizzBuzz(0, 15)); 

@@ -1,12 +1,11 @@
 const readline = require("readline");
 const eCommerce = require("./eCommerce");
-
 const reader = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-eCommerce(reader);
+
 function ShopLaunch (){
   console.log("**********\nMENU\n**********\n1 - Buy a product\n2 - Show cart\n3 - Checkout\n4 - Quit\n");
   reader.question("Choose an action", (choice) => {
@@ -22,3 +21,5 @@ function ShopLaunch (){
   })
 }
 ShopLaunch(); 
+
+ 

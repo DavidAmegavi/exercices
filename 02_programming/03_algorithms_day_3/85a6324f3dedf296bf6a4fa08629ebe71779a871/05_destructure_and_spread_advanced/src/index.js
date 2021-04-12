@@ -16,7 +16,7 @@ const multipleProfiles = {
       city: "San Francisco",
     },
   },
-}
+};
 
 /*
 Should be cleaned this way => 
@@ -32,12 +32,13 @@ let storageHell = [["ballistic vest", "sword"], [], ["IPad", "IPhone"], ["GameBo
 // Should be cleaned this way => ["ballistic vest", "sword", "IPad", "IPhone", "GameBoy color", "Nes", "donkey kong 64", "hades pc game", "Apex Legends Starter Pack", "LG 5K 27p screen", "Levi's jean", "Coffee Machine", "Azelad"]
 
 function customerProfile() {
-  // Code your function here
+  
 }
 
-function formatStorage() {
-  // Code your function here
+function formatStorage(storageHell) {
+  return storageHell; 
 }
+console.log(formatStorage(storageHell)); 
 
 
 // Feel free to uncomment those, or even create more to try everything you do :
