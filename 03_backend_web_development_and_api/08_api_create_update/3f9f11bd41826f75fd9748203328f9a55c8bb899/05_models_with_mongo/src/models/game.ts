@@ -37,18 +37,19 @@ export class GameModel {
   }
 
   findBySlug(slug: string): Promise<Game | null> {
-    return this.collection
-      .find()
-      .toArray()
-      .then((games) => {
-        const getGameBySlug = games.find((game) => {
-          return game.slug === slug;
-        });
-        if (getGameBySlug === undefined) {
-          return null;
-        }
-        return getGameBySlug;
-      });
+    return this.collection.findOne({
+      slug: slug,
+    });
+    // .toArray()
+    // .then((games) => {
+    //   const getGameBySlug = games.find((game) => {
+    //     return game.slug === slug;
+    //   });
+    //   if (getGameBySlug === undefined) {
+    //     return null;
+    //   }
+    //   return getGameBySlug;
+    // });
   }
 
   findByPlatform(platform_slug: string): Promise<Game[]> {

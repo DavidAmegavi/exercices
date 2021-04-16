@@ -55,9 +55,7 @@ export class GameModel {
         const platforms: Platform[] = [];
 
         games.forEach((game) => {
-          const platform = platforms.find(
-            (platform) => platform.slug === game.platform.slug
-          );
+          const platform = platforms.find((platform) => platform.slug === game.platform.slug);
           if (!platform) {
             platforms.push(game.platform);
           }
@@ -68,5 +66,9 @@ export class GameModel {
           slug: platform.slug,
         }));
       });
+  }
+
+  insertGames(gameInput: Game): Promise<unknown> {
+    return this.collection.insertOne(gameInput);
   }
 }
