@@ -36,6 +36,21 @@ export class GameModel {
       });
   }
 
+  // getAll(): Promise<Game[]> {
+  //   return this.collection
+  //     .find()
+  //     .toArray()
+  //     .then((games) => {
+  //       return games.map((game) => {
+  //         return {
+  //           name: game.name,
+  //           slug: game.slug,
+  //           cover: game.cover_url,
+  //         };
+  //       });
+  //     });
+  // }
+
   findBySlug(slug: string): Promise<Game | null> {
     return this.collection.findOne({
       slug: slug,

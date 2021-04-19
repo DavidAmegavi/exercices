@@ -9,11 +9,11 @@ export function makeApp(gameModel: GameModel): core.Express {
     response.status(400).json({ error: "Wrong resource" });
   });
 
-  // app.get("/games", (request, response) => {
-  //   gameModel.getAll().then((games) => {
-  //     response.json(games);
-  //   });
-  // });
+  app.get("/games", (request, response) => {
+    gameModel.getAll().then((games) => {
+      response.json(games);
+    });
+  });
 
   app.get("/games/:game_slug", (request, response) => {
     gameModel.findBySlug(request.params.game_slug).then((game) => {
@@ -32,9 +32,11 @@ export function makeApp(gameModel: GameModel): core.Express {
   });
 
   app.get("/platforms/:platform_slug", (request, response) => {
-    gameModel.findByPlatform(request.params.platform_slug).then((gamesForPlatform) => {
-      response.json(gamesForPlatform);
-    });
+    gameModel
+      .findByPlatform(request.params.platform_slug)
+      .then((gamesForPlatform) => {
+        response.json(gamesForPlatform);
+      });
   });
 
   return app;
