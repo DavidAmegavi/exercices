@@ -1,0 +1,28 @@
+body {
+  background-image: url("https://images.pexels.com/photos/3162044/pexels-photo-3162044.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-size: cover;
+}
+
+li {
+  list-style: none;
+}
+
+#list-game-card {
+  display: block;
+  margin: auto;
+}
+
+#list-game-platform-card {
+  display: block;
+  margin: auto;
+}
+
+#More-infos {
+  display: block;
+  margin: auto;
+}
+
+#game-summary {
+  display: block;
+  margin: auto;
+}
