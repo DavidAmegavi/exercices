@@ -1,4 +1,4 @@
-import express from "express";
+import express, { response } from "express";
 import * as core from "express-serve-static-core";
 import { GameModel } from "./models/game";
 import * as nunjucks from "nunjucks";
@@ -21,11 +21,9 @@ export function makeApp(gameModel: GameModel): core.Express {
     }
   };
 
-  app.set("view engine", "njk");
+  const formParser = express.urlencoded({ extended: true });
 
-  // app.get("/", (request, response) => {
-  //   response.render("home");
-  // });
+  app.set("view engine", "njk");
 
   app.get("/", (request, response) => {
     if (clientWantsJson(request)) {
@@ -91,6 +89,21 @@ export function makeApp(gameModel: GameModel): core.Express {
         }
       }
     });
+  });
+
+  app.get("/cart", (request, response) => {
+    response.render("cart");
+  });
+
+  app.post("/cart:addgames", formParser, (request, response) => {
+    console.log(request.body);
+    gameModel.addGameToCart(request.params.addgames, {
+      name: request.body.game_slug,
+    });
+  });
+
+  app.get("/login", (request, response) => {
+    response.render("login");
   });
 
   app.get("/*", (request, response) => {
