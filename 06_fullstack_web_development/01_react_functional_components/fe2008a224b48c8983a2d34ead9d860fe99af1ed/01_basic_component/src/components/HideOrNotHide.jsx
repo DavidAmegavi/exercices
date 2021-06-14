@@ -4,30 +4,12 @@ export const HideOrNotHide = () => {
   // Code here
   const [content, setContent] = useState(true);
   const handleClick = () => {
-    setContent("Hello World");
+    setContent(!content);
   };
   return (
     <div>
-      <button onClick={handleClick}>Reaveal Content</button>
-      <p>{content}</p>
+      <button onClick={handleClick}>{content ? "Hide content" : "Reveal content"}</button>
+      {content && <p>Hello World </p>}
     </div>
   );
 };
-
-// const [myButtonText, SetmyButtonText] = React.useState(true);
-// const content = "Hello World";
-
-// if (myButtonText === true) {
-//   return (
-//     <>
-//       <button onClick={() => SetmyButtonText(false)}>Hide Content</button>
-//       <p>{content}</p>
-//     </>
-//   );
-// } else {
-//   return (
-//     <>
-//       <button onClick={() => SetmyButtonText(true)}>Reavel Content</button>
-//     </>
-//   );
-// }

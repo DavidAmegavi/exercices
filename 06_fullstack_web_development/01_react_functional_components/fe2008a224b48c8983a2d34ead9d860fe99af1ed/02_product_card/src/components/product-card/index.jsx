@@ -3,13 +3,15 @@ import CardBody from "./body";
 import CardFooter from "./footer";
 import CardHeader from "./header";
 
-const ProductCard = (props) => {
-  const { product } = props;
+const ProductCard = ({ product }) => {
   return (
     <div className="header">
-      <CardHeader product={product} />
-      <CardBody game={product} />
-      <CardFooter link={product} />
+      <CardHeader
+        header={product.name}
+        // {...product.platforms.map((infos) => {
+        //   return infos.platform_logo.url;
+        // })}
+      />
     </div>
   );
 };

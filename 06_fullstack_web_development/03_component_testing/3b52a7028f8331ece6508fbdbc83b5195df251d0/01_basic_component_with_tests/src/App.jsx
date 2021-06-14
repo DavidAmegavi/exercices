@@ -1,6 +1,7 @@
 import React from "react";
 
 import { HideOrNotHide } from "./components/HideOrNotHide";
+
 import "./styles/app.css";
 
 export const App = () => {
