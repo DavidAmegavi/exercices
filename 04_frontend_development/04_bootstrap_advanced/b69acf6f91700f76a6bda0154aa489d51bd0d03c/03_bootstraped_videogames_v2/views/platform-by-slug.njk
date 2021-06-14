@@ -1,0 +1,21 @@
+{% extends "layout.njk" %} 
+
+{% block content %}
+
+<div class="container">
+  <h1>Games by platform</h1>
+</div>
+
+{% for game in gamesForPlatform %}
+<div class="container" >
+  <div class="card w-50" id="list-game-platform-card">
+    <div class="card-body">
+      <img src="{{ game.cover }}" alt="" />
+      <a href="/games/{{ game.slug }}">{{ game.name }}</a>
+    </div>
+   </div>
+</div>
+
+{% endfor %} {% endblock %}
+
+

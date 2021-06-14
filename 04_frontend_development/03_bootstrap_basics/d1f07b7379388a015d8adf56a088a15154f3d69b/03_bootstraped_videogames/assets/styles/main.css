@@ -1,0 +1,8 @@
+body {
+  background-image: url("https://images.pexels.com/photos/3162044/pexels-photo-3162044.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-size: cover;
+}
+
+li {
+  list-style: none;
+}
